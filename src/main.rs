@@ -1,8 +1,13 @@
 use bevy::prelude::*;
+use bevy_embedded_assets::EmbeddedAssetPlugin;
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        .add_plugins(
+            DefaultPlugins
+                .build()
+                .add_before::<bevy::asset::AssetPlugin>(EmbeddedAssetPlugin::default()),
+        )
         .add_systems(Startup, (spawn_player, setup_camera))
         .add_systems(Update, player_movement_system)
         .run();
