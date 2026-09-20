@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-use bevy_embedded_assets::EmbeddedAssetPlugin;
 
 fn main() {
     App::new()
